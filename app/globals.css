@@ -1,3 +1,107 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* base styles */
+body {
+  background: #ebf0fa;
+  @apply m-8 text-gray-500;
+}
+h1, h2 {
+  @apply text-lg font-bold text-primary;
+}
+main {
+  @apply max-w-5xl px-8 mx-auto my-12;
+}
+main > h2 {
+  @apply pb-2 mb-4 text-base ;
+}
+p > a {
+  @apply underline text-primary;
+}
+
+/* nav styles */
+nav {
+  @apply
+    flex items-center max-w-5xl gap-5 pb-4 mx-auto my-10 border-b-2 border-gray-200;
+}
+nav a, nav span {
+  @apply text-gray-500;
+}
+nav a:hover {
+  @apply text-black;
+}
+main nav {
+  @apply border-0;
+}
+
+/* button styles */
+button {
+  @apply 
+    flex items-center justify-between gap-2 px-3 py-2 text-sm rounded-sm;
+}
+button:hover {
+  @apply bg-opacity-90;
+}
+.btn-primary {
+  @apply text-white bg-primary;
+}
+.btn-secondary {
+  @apply text-gray-900 bg-gray-200;
+}
+
+/* form styles */
+form {
+  @apply 
+    block w-1/4 py-4 mx-auto rounded-md px-7 bg-primary bg-opacity-5 min-w-fit;
+}
+form label {
+  @apply block;
+}
+form input,
+form textarea,
+form select {
+  @apply 
+    block w-full px-2 py-1 my-4 mt-2 rounded-sm;
+}
+form button {
+  @apply block mx-auto;
+}
+
+/* feedback styles */
+.error {
+  @apply 
+    block px-2 py-1 mx-auto my-4 text-red-800 bg-red-300 border-2 border-red-500 rounded-sm max-w-fit;
+}
+
+/* card styles */
+.card {
+  @apply 
+    relative px-4 py-3 my-4 overflow-hidden bg-white rounded-md shadow-sm;
+}
+.card h3 {
+  @apply 
+    mb-0 text-sm font-bold text-gray-700;
+}
+.card p {
+  @apply my-4 text-sm leading-6;
+}
+
+/* pill styles */
+.pill {
+  @apply 
+    inline-block px-2 py-1 mt-3 text-xs font-semibold;
+}
+.pill.high {
+  @apply text-red-600 bg-red-300;
+}
+.pill.medium {
+  @apply text-blue-600 bg-blue-300;
+}
+.pill.low {
+  @apply bg-emerald-300 text-emerald-600;
+}
+.card .pill {
+  @apply 
+    absolute bottom-0 right-0 rounded-tl-md;
+}
