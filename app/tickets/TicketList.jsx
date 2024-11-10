@@ -1,13 +1,18 @@
 import Link from "next/link";
 
 async function getTickets() {
-  const res = await fetch("http://localhost:4000/tickets", {
-    next: {
-      revalidate: 0, // use 0 to opt out of using cache
-    },
-  });
+  return new Promise(async (resolve) => {
+    // imitate delay
+    await new Promise((resolve) => setTimeout(resolve, 3000));
 
-  return res.json();
+    const res = await fetch("http://localhost:4000/tickets", {
+      next: {
+        revalidate: 0, // use 0 to opt out of using cache
+      },
+    });
+
+    resolve(res.json());
+  });
 }
 
 export default async function TicketList() {

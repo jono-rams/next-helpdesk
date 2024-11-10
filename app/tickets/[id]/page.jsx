@@ -13,6 +13,9 @@ export async function generateStaticParams() {
 }
 
 async function getTicketById(id) {
+  // imitate delay
+  await new Promise(resolve => setTimeout(resolve, 3000));
+
   const res = await fetch("http://localhost:4000/tickets/" + id, {
     next: {
       revalidate: 60
@@ -27,7 +30,8 @@ async function getTicketById(id) {
 }
 
 export default async function TicketDetails({ params }) {
-  const ticket = await getTicketById(params.id);
+  const resolvedParams = await params;
+  const ticket = await getTicketById(resolvedParams.id);
 
   return (
     <main>
