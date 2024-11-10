@@ -15,7 +15,7 @@ export default function Navbar() {
           priority="true"
           className="inline-block mr-2"
         />
-        <h1 className="inline-block">Jono's Helpdesk</h1>
+        <h1 className="inline-block">Jono&#39;s Helpdesk</h1>
       </Link>
       <Link href="/">Dashboard</Link>
       <Link href="/tickets">Tickets</Link>
