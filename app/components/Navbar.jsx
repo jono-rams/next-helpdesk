@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Logo from "./dojo-logo.png";
 
-export default function Navbar() {
+export default function Navbar({ user }) {
   return (
     <nav>
       <Link href="/">
@@ -19,6 +19,7 @@ export default function Navbar() {
       </Link>
       <Link href="/">Dashboard</Link>
       <Link href="/tickets">Tickets</Link>
+      {user && <span>Hello, {user.email}</span>}
     </nav>
   );
 }
