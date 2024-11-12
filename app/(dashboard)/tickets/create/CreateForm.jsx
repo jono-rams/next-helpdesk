@@ -15,20 +15,26 @@ export default function CreateForm() {
     e.preventDefault();
     setIsLoading(true);
 
-    const ticket = { title, body, priority, user_email: "test@test.com" };
+    const ticket = { title, body, priority };
 
-    const res = await fetch("http://localhost:4000/tickets", {
+    const res = await fetch("http://localhost:3000/api/tickets", {
       method: "POST",
       body: JSON.stringify(ticket),
       headers: {
         "Content-Type": "application/json",
       },
     });
+    
+    const json = await res.json();
 
-    if (res.status === 201) {
+    if (json.error) {
+      console.error(json.error.message);
+    }
+    else if (json.data) {
       router.refresh();
       router.push("/tickets");
     }
+    
   };
 
   return (
