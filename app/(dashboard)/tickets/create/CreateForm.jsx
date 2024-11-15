@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { addTicket } from "../actions";
 
 export default function CreateForm() {
   const router = useRouter();
@@ -38,7 +39,7 @@ export default function CreateForm() {
   };
 
   return (
-    <form className="w-1/2" onSubmit={handleSubmit}>
+    <form className="w-1/2" action={addTicket}>
       <label>
         <span>Title:</span>
         <input
