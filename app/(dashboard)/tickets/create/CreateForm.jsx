@@ -1,10 +1,7 @@
-"use client";
-
-import { useState } from "react";
+import SubmitButton from "@/app/components/SubmitButton";
 import { addTicket } from "../actions";
 
 export default function CreateForm() {
-  const [isLoading, setIsLoading] = useState(false);
 
   return (
     <form className="w-1/2" action={addTicket}>
@@ -33,10 +30,7 @@ export default function CreateForm() {
           <option value="high">High Priority</option>
         </select>
       </label>
-      <button className="btn-primary" disabled={isLoading}>
-        {isLoading && <span>Adding...</span>}
-        {!isLoading && <span>Add Ticket</span>}
-      </button>
+      <SubmitButton submitText="Add Ticket" pendingText="Adding..." />
     </form>
   );
 }
