@@ -21,6 +21,7 @@ export async function addTicket(formData) {
 
   if (error) {
     console.error(error.message);
+    throw new Error('Could not add ticket');
   }
 
   revalidatePath("/tickets");
